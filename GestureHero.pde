@@ -5,7 +5,8 @@
 
 /////////////////////////////////////////////////////////////////// init /////////////
 
-final String OPENNI_INPUT_FILE = "/Users/olav/Desktop/OpenNI-trial2.txt";
+final String OPENNI_INPUT_FILE = "/Users/olav/Desktop/OpenNI-trial3.txt";
+final boolean USE_LIVE_RECORING = true;
 
 
 OpenNIFileReader input_stream;
@@ -16,6 +17,7 @@ void setup() { /////////////////////////////////////////////////////////////////
   size(600, 400);
   display = new Display();
   input_stream = new OpenNIFileReader(OPENNI_INPUT_FILE, 0.1);
+  // input_stream.fast_forward_to_current_time();
   hands = new Hands();
 }
 
