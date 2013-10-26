@@ -5,13 +5,14 @@
 
 /////////////////////////////////////////////////////////////////// init /////////////
 
-final String OPENNI_INPUT_FILE = "/Users/olav/Desktop/OpenNI-trial3.txt";
-final boolean USE_LIVE_RECORING = true;
+final String OPENNI_INPUT_FILE = "/Users/olav/Desktop/OpenNI-trial2.txt";
+final boolean USE_LIVE_RECORING = false;
 
 
 OpenNIFileReader input_stream;
 Hands hands;
 Display display;
+GestureOutcomes outcomes;
 
 void setup() { /////////////////////////////////////////////////////////////////// setup /////////////
   size(600, 400);
@@ -19,6 +20,15 @@ void setup() { /////////////////////////////////////////////////////////////////
   input_stream = new OpenNIFileReader(OPENNI_INPUT_FILE, 0.1);
   // input_stream.fast_forward_to_current_time();
   hands = new Hands();
+  
+  outcomes = new GestureOutcomes();
+  // Set up all possible outcomes
+  outcomes.add("Please!",    "images/please.jpg");
+  outcomes.add("Look!",      "images/showing.jpg");
+  outcomes.add("Success!",   "images/success.jpg");
+  outcomes.add("Surprise!",  "images/surprised.jpg");
+  outcomes.add("Thumbs_Up!", "images/thumbs_up.jpg");
+  outcomes.add("Yes!",       "images/yes_yes_yes.jpg");
 }
 
 void draw() { /////////////////////////////////////////////////////////////////// draw /////////////
