@@ -18,7 +18,6 @@ void setup() { /////////////////////////////////////////////////////////////////
   size(600, 400);
   display = new Display();
   input_stream = new OpenNIFileReader(OPENNI_INPUT_FILE, 0.1);
-  // input_stream.fast_forward_to_current_time();
   hands = new Hands();
   
   outcomes = new GestureOutcomes();
@@ -38,4 +37,8 @@ void draw() { //////////////////////////////////////////////////////////////////
   
   display.display_time();
   display.blend_down();
+}
+
+void keyPressed() {
+  outcomes.set_up_the_next_one();
 }

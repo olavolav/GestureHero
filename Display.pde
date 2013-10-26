@@ -38,4 +38,8 @@ class Display
     text(delta_t, 20, 60);
   }
   
+  void show_outcome_image(PImage img) {
+    image(img, (width-400)/2, (height-300)/2);
+  }
+  
 }

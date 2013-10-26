@@ -13,4 +13,8 @@ class GestureOutcome
     }
   }
   
+  void show() {
+    display.show_outcome_image(image);
+  }
+  
 }

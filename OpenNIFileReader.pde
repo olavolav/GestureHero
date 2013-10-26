@@ -37,7 +37,6 @@ class OpenNIFileReader
     }
     if (line == null) {
       // Stop reading because of an error or file is empty
-      // noLoop(); // should later be: 
       return false;
     } else {
       // println("DEBUG: ah, found a new line: "+line);

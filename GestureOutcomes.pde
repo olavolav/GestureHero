@@ -1,6 +1,7 @@
 class GestureOutcomes
 {
   GestureOutcome[] outcomes;
+  int next_outcome_index = -1;
   
   GestureOutcomes() {
     outcomes = new GestureOutcome[0];
@@ -12,5 +13,12 @@ class GestureOutcomes
   }
   
   int size() { return outcomes.length; }
+  
+  void set_up_the_next_one() {
+    int old_value = next_outcome_index;
+    // never choose the same outcome twice
+    while(old_value == (next_outcome_index = int(random(outcomes.length)))) {}
+    outcomes[next_outcome_index].show();
+  }
   
 }
