@@ -9,10 +9,10 @@ class Display
     // set(int(hands.hands_array[0].normalized_x() * width), int(hands.hands_array[0].normalized_z() * height), color(0));
     // set(int(hands.hands_array[1].normalized_x() * width), int(hands.hands_array[1].normalized_z() * height), color(255,0,0));
     stroke(color(0,255,0));
-    line(int(hands.hands_array[0].old_x * width), int(hands.hands_array[0].old_z * height), int(hands.hands_array[0].normalized_x() * width), int(hands.hands_array[0].normalized_z() * height));
+    line(int(hands.hands_array[0].old_x * width), int(hands.hands_array[0].old_y * height), int(hands.hands_array[0].normalized_x() * width), int(hands.hands_array[0].normalized_y() * height));
     
     stroke(color(255,0,0));
-    line(int(hands.hands_array[1].old_x * width), int(hands.hands_array[1].old_z * height), int(hands.hands_array[1].normalized_x() * width), int(hands.hands_array[1].normalized_z() * height));
+    line(int(hands.hands_array[1].old_x * width), int(hands.hands_array[1].old_y * height), int(hands.hands_array[1].normalized_x() * width), int(hands.hands_array[1].normalized_y() * height));
   }
   
   void blend_down() {
