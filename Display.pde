@@ -26,6 +26,16 @@ class Display
   void display_time() {
     fill(255);
     text(millis()/1000.0, 20, 20);
+    // delay for hand 0
+    float delta_t = hands.hands_array[0].t - millis()/1000.0;
+    if(abs(delta_t) < 0.5) { fill(0, 255, 0); }
+    else { fill(255, 0, 0); }
+    text(delta_t, 20, 40);
+    // delay for hand 1
+    delta_t = hands.hands_array[1].t - millis()/1000.0;
+    if(abs(delta_t) < 0.5) { fill(0, 255, 0); }
+    else { fill(255, 0, 0); }
+    text(delta_t, 20, 60);
   }
   
 }
