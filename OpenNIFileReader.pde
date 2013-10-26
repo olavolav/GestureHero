@@ -1,10 +1,20 @@
 class OpenNIFileReader
 {
   BufferedReader reader;
+  float time_delay_in_seconds;
+  float last_read_time_stamp;
   
-  OpenNIFileReader(String file_name) {
+  OpenNIFileReader(String file_name, float t_delay) {
+    time_delay_in_seconds = t_delay;
     println("Opening input stream at "+file_name);
     reader = createReader(file_name);
+  }
+  
+  void read_new_data_set() {
+    while(true) {
+      if(last_read_time_stamp > millis()/1000.0 - time_delay_in_seconds) { break; }
+      if(!read_next_data_set()) { break; }
+    }
   }
   
   boolean read_next_data_set() {
@@ -31,6 +41,8 @@ class OpenNIFileReader
         float z = float(pieces[3]);
         float t = float(pieces[4]);
         hands.submit_new_data_set(n, x, y, z, t);
+        last_read_time_stamp = t;
+        // println("DEBUG: last_read_time_stamp = "+last_read_time_stamp);
       }
     }
     return found_a_new_one;

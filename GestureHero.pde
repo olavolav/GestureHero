@@ -10,20 +10,20 @@ final String OPENNI_INPUT_FILE = "/Users/olav/Desktop/OpenNI-trial2.txt";
 
 OpenNIFileReader input_stream;
 Hands hands;
+Display display;
 
 void setup() { /////////////////////////////////////////////////////////////////// setup /////////////
   size(600, 400);
-  input_stream = new OpenNIFileReader(OPENNI_INPUT_FILE);
+  display = new Display();
+  input_stream = new OpenNIFileReader(OPENNI_INPUT_FILE, 0.1);
   hands = new Hands();
 }
 
 void draw() { /////////////////////////////////////////////////////////////////// draw /////////////
-  input_stream.read_next_data_set();
-  // set(int(hands.hands_array[0].normalized_x() * width), int(hands.hands_array[0].normalized_z() * height), color(0));
-  // set(int(hands.hands_array[1].normalized_x() * width), int(hands.hands_array[1].normalized_z() * height), color(255,0,0));
-  stroke(color(0));
-  line(int(hands.hands_array[0].old_x * width), int(hands.hands_array[0].old_z * height), int(hands.hands_array[0].normalized_x() * width), int(hands.hands_array[0].normalized_z() * height));
+  // input_stream.read_next_data_set();
+  input_stream.read_new_data_set();
+  display.draw_lines_for_hands();
   
-  stroke(color(255,0,0));
-  line(int(hands.hands_array[1].old_x * width), int(hands.hands_array[1].old_z * height), int(hands.hands_array[1].normalized_x() * width), int(hands.hands_array[1].normalized_z() * height));
+  display.display_time();
+  display.blend_down();
 }
