@@ -17,6 +17,10 @@ class PhasesController
       float deviation = outcomes.evaluate_performance();
       display.blend_down(80);
       display.huge_alert(int(100.0*(1.0-deviation))+"%");
+      int applause_level = 0;
+      if(deviation < 0.65) { applause_level = 1; }
+      if(deviation < 0.3) { applause_level = 2; }
+      cheers[applause_level].trigger();
       outcomes.set_up_the_next_one();
       time_of_next_hit += TIME_BETWEEN_GESTURES;
     }
