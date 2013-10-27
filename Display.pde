@@ -28,17 +28,17 @@ class Display
   
   void display_time() {
     fill(255);
-    text(millis()/1000.0, 20, 20);
+    text(millis()/1000.0, 40, 20);
     // delay for hand 0
     float delta_t = hands.hands_array[0].t - millis()/1000.0;
     if(abs(delta_t) < 1.0) { fill(0, 255, 0); }
     else { fill(255, 0, 0); }
-    text(delta_t, 20, 40);
+    text(delta_t, 40, 40);
     // delay for hand 1
     delta_t = hands.hands_array[1].t - millis()/1000.0;
     if(abs(delta_t) < 1.0) { fill(0, 255, 0); }
     else { fill(255, 0, 0); }
-    text(delta_t, 20, 60);
+    text(delta_t, 40, 60);
   }
   
   void show_outcome_image(PImage img) {
@@ -48,11 +48,7 @@ class Display
   void draw_progress_bar(float fraction) {
     float bounded_fraction = min( 1.0, max(0.0, fraction) );
     noSmooth();
-    // noFill();
-    // stroke(#ffffff);
-    // rect(width/4.0, height*0.666, round(width/2.0)+1, height/20.0);
     noStroke();
-    // fill(#ffffff);
     fill(color(255, int(255*(1.0-fraction)), int(255*(1.0-fraction))), int(255*fraction));
     rect(width/4.0, height*0.666, round(bounded_fraction*width/2.0)+1, height/20.0);
   }
@@ -61,7 +57,14 @@ class Display
     textSize(200);
     textAlign(CENTER, CENTER);
     fill(#FFFFFF);
-    text(message,width/2,height/2);
+    text(message, width/2, height/2);
+    textSize(18);
+  }
+  
+  void subtitle(String message) {
+    textAlign(CENTER, BOTTOM);
+    fill(#FFFFFF);
+    text(message, width/2, height-20);
     textSize(18);
   }
   
