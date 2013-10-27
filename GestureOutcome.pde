@@ -21,6 +21,9 @@ class GestureOutcome
   void show() {
     display.show_outcome_image(image);
     display.subtitle(name);
+    // fill(255);
+    // rect(left_x*width, left_y*height, 10, 10);
+    // rect(right_x*width, right_y*height, 10, 10);
   }
   
   float deviation_from_ideal(float l_x, float l_y, float r_x, float r_y) {
