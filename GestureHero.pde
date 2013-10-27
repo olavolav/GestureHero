@@ -11,8 +11,8 @@ final boolean USE_LIVE_RECORING = true;
 // final String OPENNI_INPUT_FILE = "/Users/olav/Desktop/OpenNI-trial2.txt";
 // final boolean USE_LIVE_RECORING = false;
 
-final float INITIAL_PERIOD_OF_NO_GESTURES = 60.0;
-final float TIME_BETWEEN_GESTURES = 5.0;
+final float INITIAL_PERIOD_OF_NO_GESTURES = 25.0;
+final float TIME_BETWEEN_GESTURES = 7.0;
 final float PREPARATION_TIME_BEFORE_HIT = 2.0; // needs to be smaller than time between gestures
 
 
@@ -26,7 +26,8 @@ Minim minim;
 AudioSample[] cheers = new AudioSample[3];
 
 void setup() { /////////////////////////////////////////////////////////////////// setup /////////////
-  size(600, 400);
+  // size(600, 400);
+  size(800, 600);
   display = new Display();
   input_stream = new OpenNIFileReader(OPENNI_INPUT_FILE, 0.1);
   hands = new Hands();
